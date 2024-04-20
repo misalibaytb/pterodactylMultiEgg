@@ -36,6 +36,6 @@ ENV         USER=container HOME=/home/container
 WORKDIR     /home/container
 
 COPY        ./../entrypoint.sh /entrypoint.sh
-COPY       ./../jarChecker.sh /jarChecker.sh
+COPY        ./../jarChecker.sh /jarChecker.sh
 
 CMD         [ "/bin/bash", "/entrypoint.sh" ]
