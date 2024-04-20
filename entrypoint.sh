@@ -1,8 +1,13 @@
 #!/bin/bash
 
 # Check server.jar size
-if [ "$(du -b /home/container/server.jar | cut -f1)" -lt 1048576 ]; then
-    echo "Error: this server.jar is not allowed, only use minecraft jars." >&2
+echo "Checking server.jar"
+# get server.jar check sum
+server_jar_checksum=$(md5sum /home/container/server.jar | awk '{ print $1 }')
+echo "server.jar checksum: $server_jar_checksum"
+
+if [ ! -f /home/container/server.jar ]; then
+    echo "server.jar not found!"
     exit 1
 fi
 
