@@ -38,8 +38,4 @@ WORKDIR     /home/container
 COPY        ./../entrypoint.sh /entrypoint.sh
 COPY       ./../jarChecker.sh /jarChecker.sh
 
-# Copy server.jar into the container
-COPY        ./../server.jar /home/container/server.jar
-
-
 CMD         [ "/bin/bash", "/entrypoint.sh" ]
